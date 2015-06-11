@@ -7,6 +7,16 @@
       <div flex class="name-modal-food text-dot" horizontal layout center>{{food.name}}</div>
       <div class="price-modal-food" horizontal layout center>{{food.subTotal | currency}}</div>
     </div>
+    <div class="food-take-away" horizontal layout center center-justified>
+      <li class="item item-checkbox">
+        <label>
+          <span class="checkbox">
+            <input type="checkbox" ng-model="food.isTakeAway">
+          </span>
+          Take away
+        </label>
+      </li>
+    </div>
     <div class="button-modal-food close-modal-food positive-bg" horizontal layout center center-justified ng-click="addFood()">Add</div>
   </ion-header-bar>
   <ion-content>

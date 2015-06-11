@@ -55,6 +55,12 @@ angular
         resolve: {
           dataFoods: function (MainFactory) {
             return MainFactory.getFoods();
+          },
+          dataTaxes: function (MainFactory) {
+            return MainFactory.getTaxes();
+          },
+          dataDiscounts: function (MainFactory) {
+            return MainFactory.getDiscounts();
           }
         }
       })
@@ -64,6 +70,26 @@ angular
           'menuContent' :{
             templateUrl: 'views/states/orders.html',
             controller: 'OrdersCtrl',
+            data : {requireLogin : true }
+          }
+        }
+      })
+      .state('main.taxes', {
+        url: '/taxes',
+        views: {
+          'menuContent' :{
+            templateUrl: 'views/states/taxes.html',
+            controller: 'TaxesCtrl',
+            data : {requireLogin : true }
+          }
+        }
+      })
+      .state('main.discounts', {
+        url: '/discounts',
+        views: {
+          'menuContent' :{
+            templateUrl: 'views/states/discounts.html',
+            controller: 'DiscountsCtrl',
             data : {requireLogin : true }
           }
         }

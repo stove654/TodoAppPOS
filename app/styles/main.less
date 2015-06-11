@@ -1,5 +1,5 @@
 .bar-header {
-  height: 80px;
+  height: 64px;
   padding: 0;
 }
 .avatar-water {
@@ -16,7 +16,7 @@
   width: 96px;
 }
 .tabs-app {
-  font-size: 28px;
+  font-size: 20px;
   color: #fff;
   width: 88px;
   &.active {
@@ -33,7 +33,7 @@ a {
   white-space: nowrap;
 }
 .has-header {
-  top: 80px;
+  top: 64px;
 }
 .menu-food-left {
   background: #111;
@@ -215,22 +215,22 @@ a:hover, a:focus {
 .table-order {
   padding: 8px;
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
   text-transform: uppercase;
 }
 .customer_number {
-  font-size: 22px;
+  font-size: 16px;
   margin-left: 4px;
 }
 .footer-order {
-  height: 200px;
+  height: 177px;
+  display: block;
 }
 .has-footer {
   bottom: 0;
 }
 .label-category {
   background-color: #ddd;
-  padding: 8px;
   font-size: 16px;
 }
 .delivered-food {
@@ -248,8 +248,47 @@ a:hover, a:focus {
   padding: 0 8px 0 28px;
 }
 .one-food {
-  padding: 8px 0;
+  padding: 4px 0;
 }
 .quantity-food {
   padding: 0 8px;
 }
+.food-take-away {
+  li {
+    padding-left: 40px;
+    border-width: 0;
+    border-color: transparent;
+    border: none;
+    margin: 0;
+    input {
+      margin-left: -8px !important;
+    }
+  }
+}
+input {
+  outline: none !important;
+}
+.button-confirm {
+  width: 100%;
+  button {
+    margin: 0 !important;
+  }
+}
+.group-function-order {
+  padding: 4px 0;
+  .button {
+    min-height: 36px !important;
+    line-height: 36px !important;
+    &.active {
+      border-color: #673dcb;
+      background-color: #673dcb;
+      box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+      color: #fff;
+    }
+  }
+}
+.total-order {
+  font-weight: 600;
+  font-size: 18px;
+}
+

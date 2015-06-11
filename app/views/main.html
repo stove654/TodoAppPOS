@@ -65,34 +65,57 @@
           </div>
         </div>
       </ion-header-bar>
-      <ion-content>
+      <ion-content style="bottom: 177px">
         <div class="list-foods-order">
-          <div ng-repeat="item in order.orderNoSplit">
-            <div class="label-category">{{item.name}}</div>
-            <div class="one-food" ng-repeat="item in item.foods">
-              <div class="foods-list" horizontal layout>
-                <div class="delivered-food"><i class="mdi mdi-checkbox-blank-outline"></i></div>
-                <div flex horizontal layout>
-                  <div flex class="name-food text-dot">{{item.name}}</div>
-                  <div class="quantity-food">&times;{{item.quantity}}</div>
+          <div ng-repeat="item in order.orderNoSplit" ng-show="item.foods.length">
+            <div class="label-category" horizontal layout>
+              <div flex style="padding: 8px">{{item.name}}</div>
+              <div style="padding: 8px 16px;background-color: #CD543F;color: #fff;">
+                <i class="mdi mdi-bell-ring-outline"></i>
+              </div>
+            </div>
+            <div style="padding: 4px 0">
+              <div class="one-food" ng-repeat="item in item.foods">
+                <div class="foods-list" horizontal layout>
+                  <div class="delivered-food"><i class="mdi mdi-checkbox-blank-outline"></i></div>
+                  <div flex horizontal layout>
+                    <div flex class="name-food text-dot">{{item.name}}</div>
+                    <div class="quantity-food">&times;{{item.quantity}}</div>
+                  </div>
+                  <div class="subtotal-food"><i class="mdi mdi-tag-text-outline" ng-show="item.discounts.length"></i> {{item.subTotal | currency}}</div>
                 </div>
-                <div class="subtotal-food">{{item.subTotal | currency}}</div>
+                <div class="option-list" ng-show="item.options.length">
+                  - <span ng-repeat="o in item.options">{{o.name}}<span ng-hide="$index == (item.options.length - 1)">,</span> </span>
+                </div>
+                <div class="option-list" ng-show="item.foodNote">- mon nhieu rau</div>
               </div>
-              <div class="option-list" ng-show="item.options.length">
-                - <span ng-repeat="o in item.options">{{o.name}}<span ng-hide="$index == (item.options.length - 1)">,</span> </span>
-              </div>
-              <div class="option-list" ng-show="item.foodNote">- mon nhieu rau</div>
             </div>
           </div>
         </div>
       </ion-content>
       <ion-footer-bar class="footer-order">
-        <div class="buttons">
-          <button class="button">Left Button</button>
+        <div class="total-order" horizontal layout>
+          <div flex>Total:</div>
+          <div>{{order.total | currency}}</div>
         </div>
-        <h1 class="title">Title!</h1>
-        <div class="buttons" ng-click="doSomething()">
-          <button class="button">Right Button</button>
+        <div style="padding: 4px 0">
+          <div class="group-function-order">
+            <div class="button-bar">
+              <a class="button">Print</a>
+              <a class="button" ui-sref="main.taxes" ui-sref-active="active">Taxes</a>
+              <a class="button" ui-sref="main.discounts" ui-sref-active="active">Discounts</a>
+            </div>
+          </div>
+          <div class="group-function-order">
+            <div class="button-bar">
+              <a class="button" ng-click="selectPaymentMethodId(1)" ng-class="{active: order.paymentMethodId == 1}">Cash</a>
+              <a class="button" ng-click="selectPaymentMethodId(2)" ng-class="{active: order.paymentMethodId == 2}">Card</a>
+              <a class="button" ng-click="selectPaymentMethodId(3)" ng-class="{active: order.paymentMethodId == 3}">Owe</a>
+            </div>
+          </div>
+        </div>
+        <div class="button-confirm">
+          <button type="button" class="btn btn-danger btn-lg btn-block">Send</button>
         </div>
       </ion-footer-bar>
     </ion-view>

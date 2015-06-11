@@ -18,5 +18,18 @@ angular.module('appPosApp')
       });
     };
 
+    api.getTaxes = function () {
+      return $http.get(AppConfig.baseUrl + 'api/taxes').then(function(data) {
+        localStorageService.set('taxes', data.data)
+      });
+    };
+
+    api.getDiscounts = function () {
+      return $http.get(AppConfig.baseUrl + 'api/discounts').then(function(data) {
+        console.log(data.data);
+        localStorageService.set('discounts', data.data)
+      });
+    };
+
     return api;
   });

@@ -40,7 +40,11 @@ angular.module('appPosApp')
     };
 
     $scope.addFood = function () {
-      OrderService.updateItems(angular.copy($scope.food))
+      if ($scope.food.isTakeAway) {
+        OrderService.updateItemsTakeAways(angular.copy($scope.food))
+      } else {
+        OrderService.updateItemsMains(angular.copy($scope.food))
+      }
       $scope.modalFood.hide();
     }
 
