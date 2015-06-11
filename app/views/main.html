@@ -1,0 +1,78 @@
+<ion-side-menus enable-menu-with-back-views="false">
+
+  <ion-side-menu-content>
+    <!--<ion-header-bar class="bar-positive" horizontal layout>
+      <div vertical layout class="info-waiter">
+        <div flex horizontal layout center center-justified>
+          <div class="avatar-water" style="background-image: url(./images/avatar.png);"></div>
+        </div>
+        <div class="name-waiter text-dot">
+          Waiter@hottab.net
+        </div>
+      </div>
+      <div flex horizontal layout>
+        <a class="tabs-app" horizontal layout center center-justified ui-sref="main.foods" ui-sref-active="active">
+          <i class="mdi mdi-apps"></i>
+        </a>
+        <a class="tabs-app" horizontal layout center center-justified>
+          <i class="mdi mdi-basket"></i>
+        </a>
+        <a class="tabs-app" horizontal layout center center-justified ui-sref="main.order" ui-sref-active="active">
+          <i class="mdi mdi-clipboard-text"></i>
+        </a>
+        <a class="tabs-app" horizontal layout center center-justified>
+          <i class="mdi mdi-library-plus"></i>
+        </a>
+      </div>
+    </ion-header-bar>
+
+    <ion-nav-view name="menuContent"></ion-nav-view>-->
+    <ion-view class="main-content">
+      <ion-header-bar class="bar-positive theme-cashier" horizontal layout>
+        <div vertical layout class="info-waiter">
+          <div flex horizontal layout center center-justified>
+            <div class="avatar-water" style="background-image: url(./images/avatar.png);"></div>
+          </div>
+          <div class="name-waiter text-dot">
+            Waiter@hottab.net
+          </div>
+        </div>
+        <div flex></div>
+        <div horizontal layout>
+          <a class="tabs-app" horizontal layout center center-justified ui-sref="main.foods" ui-sref-active="active">
+            <i class="mdi mdi-apps"></i>
+          </a>
+          <a class="tabs-app" horizontal layout center center-justified ui-sref="main.orders" ui-sref-active="active">
+            <i class="mdi mdi-basket"></i>
+          </a>
+          <a class="tabs-app" horizontal layout center center-justified>
+            <i class="mdi mdi-library-plus"></i>
+          </a>
+        </div>
+      </ion-header-bar>
+      <ion-nav-view name="menuContent" animation="no-animation"></ion-nav-view>
+    </ion-view>
+    <ion-view class="order-content">
+      <ion-header-bar class="theme-cashier-order">
+
+      </ion-header-bar>
+      <ion-content>
+        thjehalf
+      </ion-content>
+    </ion-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-assertive">
+      <h1 class="title">Left Menu</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ul class="list">
+        <!-- Note each link has the 'menu-close' attribute so the menu auto closes when clicking on one of these links -->
+        <a href="#/event/check-in" class="item" menu-close>Check-in</a>
+        <a href="#/event/attendees" class="item" menu-close>Attendees</a>
+      </ul>
+    </ion-content>
+  </ion-side-menu>
+
+</ion-side-menus>

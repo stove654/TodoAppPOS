@@ -1,0 +1,199 @@
+.bar-header {
+  height: 80px;
+  padding: 0;
+}
+.avatar-water {
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  background-size: cover;
+}
+.info-waiter {
+  padding: 0 8px;
+  width: 96px;
+}
+.tabs-app {
+  font-size: 28px;
+  color: #fff;
+  width: 88px;
+}
+.tabs-app.active {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+a {
+  text-decoration: none !important;
+}
+.text-dot {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.has-header {
+  top: 80px;
+}
+.menu-food-left {
+  background: #111;
+  width: 96px;
+}
+.list-customize li {
+  padding: 16px 4px;
+  background-color: transparent;
+  border: none;
+  border-width: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  border-left: 4px solid transparent;
+}
+.list-customize li i {
+  font-size: 28px;
+}
+.list-customize li.active {
+  background: #000;
+  color: #fff;
+  border-left: 4px solid #387ef5;
+}
+.list-customize li.activated {
+  background-color: #000;
+  border-color: #387ef5;
+}
+.width-1-3 {
+  width: 33.33333333%;
+  float: left;
+  padding: 8px;
+  height: 100px;
+}
+.all-foods {
+  padding: 8px;
+  overflow: hidden;
+}
+.all-foods .food-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  color: #fff;
+}
+.all-foods .shadow-info {
+  background-color: rgba(32, 43, 54, 0.5);
+}
+.close-modal-food {
+  width: 64px;
+}
+.close-modal-food i {
+  font-size: 24px;
+}
+.button-modal-food {
+  color: #fff;
+}
+.price-modal-food {
+  padding: 0 16px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.food-options {
+  padding: 8px;
+  overflow: hidden;
+}
+.food-options ul li {
+  width: 50%;
+  float: left;
+  padding: 8px;
+}
+.food-options ul li .option-modal {
+  border: 1px solid #bbb;
+  padding: 8px;
+  text-transform: capitalize;
+}
+.food-options ul li .option-modal.active {
+  background-color: #222;
+  color: #fff;
+}
+.label-food {
+  padding: 16px 16px 0 16px;
+}
+.label-food-discount {
+  padding: 0 16px;
+}
+.food-discounts {
+  padding: 8px;
+}
+.food-discounts li {
+  float: left;
+  width: 50%;
+  padding: 8px;
+}
+.food-discounts li .item {
+  border: 1px solid #bbb;
+  font-size: 14px;
+  color: #000;
+  padding: 8px 80px 8px 8px;
+  text-transform: capitalize;
+}
+.name-modal-food {
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 600;
+}
+.quantity-food-modal {
+  height: 66px;
+  padding: 8px;
+}
+.button-quantity {
+  width: 58px;
+  border: 1px solid #bbb;
+  font-size: 22px;
+}
+.food-quantity {
+  width: 58px;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+}
+.info-food-modal {
+  padding: 8px;
+}
+.food-note {
+  padding: 8px;
+}
+.food-note textarea {
+  width: 100% !important;
+  padding: 8px;
+  border: 1px solid #bbb;
+  height: 50px;
+  max-height: 50px;
+}
+.bold {
+  font-weight: 600;
+}
+.main-content {
+  width: 66%;
+  float: left;
+}
+.order-content {
+  width: 34%;
+  left: initial;
+}
+.theme-cashier {
+  background-color: #512DA8 !important;
+  border-color: initial !important;
+  border-bottom: none;
+  border-top: none;
+}
+.theme-cashier-order {
+  background-color: #673dcb;
+  border: none;
+}
+.modal-backdrop {
+  background-color: transparent;
+}
+.back-ground {
+  background-color: #eee;
+}
+a:hover,
+a:focus {
+  color: inherit;
+}

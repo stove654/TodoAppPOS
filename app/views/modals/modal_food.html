@@ -1,0 +1,66 @@
+<ion-modal-view ng-controller="FoodCtrl">
+  <ion-header-bar horizontal layout>
+    <div class="close-modal-food" horizontal layout center center-justified ng-click="closeModalFood()">
+      <i class="mdi mdi-close"></i>
+    </div>
+    <div flex horizontal layout>
+      <div flex class="name-modal-food text-dot" horizontal layout center>{{food.name}}</div>
+      <div class="price-modal-food" horizontal layout center>{{food.subTotal | currency}}</div>
+    </div>
+    <div class="button-modal-food close-modal-food positive-bg" horizontal layout center center-justified ng-click="addFood()">Add</div>
+  </ion-header-bar>
+  <ion-content overflow-scroll="true">
+
+    <div class="info-food-modal"horizontal layout>
+      <div flex class="food-note">
+        <textarea rows="2" ng-model="food.note" placeholder="Note"></textarea>
+      </div>
+      <div class="quantity-food-modal" horizontal layout>
+        <div class="button-quantity" horizontal layout center center-justified ng-click="subQuantity()"><i class="mdi mdi-minus"></i></div>
+        <div flex class="food-quantity" horizontal layout center center-justified>{{food.quantity}}</div>
+        <div class="button-quantity" horizontal layout center center-justified ng-click="addQuantity()"><i class="mdi mdi-plus"></i></div>
+      </div>
+    </div>
+
+    <div class="label-food bold" ng-show="food.options.length">
+      Options: choose one
+    </div>
+    <div class="food-options">
+      <ul>
+        <li ng-repeat="item in food.options">
+          <div class="option-modal" ng-class="{active: item.selected}" ng-click="selectOption(item)">
+            <div class="text-dot bold">
+              {{item.name}}
+            </div>
+            <div>
+              {{item.price | currency}}
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="label-food-discount bold" ng-show="food.Discounts.length">
+      Discounts
+    </div>
+    <div class="food-discounts">
+      <ul>
+        <li ng-repeat="item in food.discounts">
+          <div class="discount-modal item item-toggle text-dot">
+            <div class="bold">
+              {{item.name}}
+            </div>
+            <duv>
+              {{item.amount | currency}}
+            </duv>
+            <label class="toggle toggle-assertive">
+              <input type="checkbox" ng-model="item.selected" ng-change="selectDiscount()">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </ion-content>
+</ion-modal-view>
