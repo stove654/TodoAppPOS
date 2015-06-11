@@ -10,15 +10,28 @@
 angular.module('appPosApp')
   .service('OrderService', function () {
     var order = {
-      items: [],
+      orderNoSplit: [
+        {
+          name: 'Mains',
+          foods: []
+        },
+        {
+          name: 'Take away',
+          foods: []
+        }
+      ],
+      orderSplit: [],
       discounts: [],
       taxes: [],
       total: 0
     };
 
+    this.updateItemsTakeAway = function (item) {
+      order.orderNoSplit[1].foods.push(item);
+    };
 
-    this.updateItems = function (item) {
-      order.items.push(item);
+    this.updateItemsMains = function (item) {
+      order.orderNoSplit[0].foods.push(item);
     };
 
     this.getOrder = function () {
@@ -27,7 +40,17 @@ angular.module('appPosApp')
 
     this.clearOrder = function () {
       order = {
-        items: [],
+        orderNoSplit: [
+          {
+            name: 'Mains',
+            foods: []
+          },
+          {
+            name: 'Take away',
+            foods: []
+          }
+        ],
+        orderSplit: [],
         discounts: [],
         taxes: [],
         total: 0

@@ -54,11 +54,47 @@
     </ion-view>
     <ion-view class="order-content">
       <ion-header-bar class="theme-cashier-order">
-
+        <div horizontal layout style="width: 100%; padding: 8px">
+          <div class="table-order" horizontal layout center center-justified>Table</div>
+          <div flex></div>
+          <div class="tabs-app" horizontal layout center center-justified>
+            <i class="mdi mdi mdi-view-headline"></i>
+          </div>
+          <div class="tabs-app" horizontal layout center center-justified>
+            <i class="mdi mdi-account-multiple-plus"></i> <span class="customer_number"> 10</span>
+          </div>
+        </div>
       </ion-header-bar>
       <ion-content>
-        thjehalf
+        <div class="list-foods-order">
+          <div ng-repeat="item in order.orderNoSplit">
+            <div class="label-category">{{item.name}}</div>
+            <div class="one-food" ng-repeat="item in item.foods">
+              <div class="foods-list" horizontal layout>
+                <div class="delivered-food"><i class="mdi mdi-checkbox-blank-outline"></i></div>
+                <div flex horizontal layout>
+                  <div flex class="name-food text-dot">{{item.name}}</div>
+                  <div class="quantity-food">&times;{{item.quantity}}</div>
+                </div>
+                <div class="subtotal-food">{{item.subTotal | currency}}</div>
+              </div>
+              <div class="option-list" ng-show="item.options.length">
+                - <span ng-repeat="o in item.options">{{o.name}}<span ng-hide="$index == (item.options.length - 1)">,</span> </span>
+              </div>
+              <div class="option-list" ng-show="item.foodNote">- mon nhieu rau</div>
+            </div>
+          </div>
+        </div>
       </ion-content>
+      <ion-footer-bar class="footer-order">
+        <div class="buttons">
+          <button class="button">Left Button</button>
+        </div>
+        <h1 class="title">Title!</h1>
+        <div class="buttons" ng-click="doSomething()">
+          <button class="button">Right Button</button>
+        </div>
+      </ion-footer-bar>
     </ion-view>
   </ion-side-menu-content>
 

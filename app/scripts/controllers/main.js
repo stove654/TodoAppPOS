@@ -8,10 +8,7 @@
  * Controller of the appPosApp
  */
 angular.module('appPosApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, OrderService) {
+    $scope.order = OrderService.getOrder();
+    console.log($scope.order);
   });
