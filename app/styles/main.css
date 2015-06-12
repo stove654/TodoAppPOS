@@ -218,7 +218,7 @@ a:focus {
   margin-left: 4px;
 }
 .footer-order {
-  height: 177px;
+  height: 130px;
   display: block;
 }
 .has-footer {
@@ -283,4 +283,35 @@ input {
 .total-order {
   font-weight: 600;
   font-size: 18px;
+}
+.header-tax-discount {
+  padding: 16px 16px 0 16px;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+.tax-discount {
+  width: 33%;
+  float: left;
+  height: 110px;
+  padding: 8px;
+}
+.list-tax-discount {
+  overflow: hidden;
+  padding: 8px;
+}
+.name-tax-discount {
+  background-color: #d9534f;
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+  color: #fff;
+}
+.amount-tax-discount {
+  font-size: 20px;
+}
+.calculator-order.activeCalculator {
+  bottom: 177px !important;
+}
+.footer-order.activeCalculator {
+  height: 177px !important;
 }

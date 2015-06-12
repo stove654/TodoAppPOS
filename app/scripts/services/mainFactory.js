@@ -20,16 +20,26 @@ angular.module('appPosApp')
 
     api.getTaxes = function () {
       return $http.get(AppConfig.baseUrl + 'api/taxes').then(function(data) {
+        angular.forEach(data.data, function(value, key) {
+          _formatTaxDiscount(value)
+        });
         localStorageService.set('taxes', data.data)
       });
     };
 
     api.getDiscounts = function () {
       return $http.get(AppConfig.baseUrl + 'api/discounts').then(function(data) {
-        console.log(data.data);
+        angular.forEach(data.data, function(value, key) {
+          _formatTaxDiscount(value)
+        });
         localStorageService.set('discounts', data.data)
       });
     };
+
+    function _formatTaxDiscount(item) {
+      item.amount = parseFloat(item.amount);
+      item.percent = parseFloat(item.percent);
+    }
 
     return api;
   });

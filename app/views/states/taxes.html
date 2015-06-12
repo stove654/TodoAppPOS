@@ -1,6 +1,20 @@
 <ion-view>
   <ion-content class="back-ground">
 
+    <div class="header-tax-discount">
+      Taxes
+    </div>
+    <div class="list-tax-discount">
+      <div ng-repeat="item in taxes" class="tax-discount" ng-click="addTax(item)">
+        <div vertical layout style="background-color: #fff; height: 100px;border: 1px solid #ddd">
+          <div class="name-tax-discount">{{item.name}}</div>
+          <div flex class="amount-tax-discount" horizontal layout center center-justified>
+            <span ng-show="item.amount">{{item.amount | currency}}</span>
+            <span ng-show="item.percent">{{item.percent}}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </ion-content>
 

@@ -51,18 +51,7 @@ angular
         url: '/main',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        data : {requireLogin : true },
-        resolve: {
-          dataFoods: function (MainFactory) {
-            return MainFactory.getFoods();
-          },
-          dataTaxes: function (MainFactory) {
-            return MainFactory.getTaxes();
-          },
-          dataDiscounts: function (MainFactory) {
-            return MainFactory.getDiscounts();
-          }
-        }
+        data : {requireLogin : true }
       })
       .state('main.orders', {
         url: '/orders',
@@ -100,6 +89,26 @@ angular
           'menuContent' :{
             templateUrl: 'views/states/foods.html',
             controller: 'FoodsCtrl',
+            data : {requireLogin : true }
+          }
+        }
+      })
+      .state('main.calculator', {
+        url: '/calculator',
+        views: {
+          'menuContent' :{
+            templateUrl: 'views/states/calculator.html',
+            controller: 'CalculatorCtrl',
+            data : {requireLogin : true }
+          }
+        }
+      })
+      .state('main.table', {
+        url: '/table',
+        views: {
+          'menuContent' :{
+            templateUrl: 'views/states/table.html',
+            controller: 'TableCtrl',
             data : {requireLogin : true }
           }
         }

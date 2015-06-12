@@ -24,6 +24,9 @@ angular.module('appPosApp')
       discounts: [],
       taxes: [],
       paymentMethodId: 1,
+      totalTax: 0,
+      totalDiscount: 0,
+      totalNow: 0,
       total: 0
     };
 
@@ -37,6 +40,32 @@ angular.module('appPosApp')
       this.totalOrder();
     };
 
+    function _checkTaxDiscount(item, array) {
+      var check = false;
+      for (var i = 0; i < array.length; i++) {
+        if (item._id == array[i]._id) {
+          check = true;
+          break;
+        }
+      }
+      return check
+    }
+
+    this.updateTaxes = function (item) {
+      if (!_checkTaxDiscount(item, order.taxes) && order.orderNoSplit[0].foods.length && order.orderNoSplit[1].foods.length) {
+        console.log( order.orderNoSplit[0].foods.length , order.orderNoSplit[1].foods.length)
+        order.taxes.push(item);
+        this.totalOrder();
+      }
+    };
+
+    this.updateDiscounts = function (item) {
+      if (!_checkTaxDiscount(item, order.discounts) && order.orderNoSplit[0].foods.length && order.orderNoSplit[1].foods.length) {
+        order.discounts.push(item);
+        this.totalOrder();
+      }
+    };
+
     this.totalOrder = function () {
       order.total = 0;
       angular.forEach(order.orderNoSplit, function(value, key) {
@@ -44,6 +73,24 @@ angular.module('appPosApp')
           order.total += item.subTotal;
         })
       });
+      order.totalNow = angular.copy(order.total);
+      angular.forEach(order.taxes, function(item, key) {
+        if (item.amount) {
+          order.totalTax += item.amount;
+        }
+        if (item.percent) {
+          order.totalTax += item.percent * order.totalNow / 100;
+        }
+      });
+      angular.forEach(order.discounts, function(item, key) {
+        if (item.amount) {
+          order.totalDiscount += item.amount;
+        }
+        if (item.percent) {
+          order.totalDiscount += item.percent * order.totalNow / 100;
+        }
+      });
+      order.total = order.totalNow + order.totalTax - order.totalDiscount
     };
 
     this.updatePaymentMethod = function (id) {
@@ -70,6 +117,9 @@ angular.module('appPosApp')
         discounts: [],
         taxes: [],
         paymentMethodId: 1,
+        totalTax: 0,
+        totalDiscount: 0,
+        totalNow: 0,
         total: 0
       };
     };

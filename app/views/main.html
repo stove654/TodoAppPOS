@@ -39,6 +39,9 @@
         </div>
         <div flex></div>
         <div horizontal layout>
+          <a class="tabs-app" horizontal layout center center-justified ui-sref="main.calculator" ui-sref-active="active">
+            <i class="mdi mdi-calculator"></i>
+          </a>
           <a class="tabs-app" horizontal layout center center-justified ui-sref="main.foods" ui-sref-active="active">
             <i class="mdi mdi-apps"></i>
           </a>
@@ -55,7 +58,9 @@
     <ion-view class="order-content">
       <ion-header-bar class="theme-cashier-order">
         <div horizontal layout style="width: 100%; padding: 8px">
-          <div class="table-order" horizontal layout center center-justified>Table</div>
+          <div class="tabs-app" horizontal layout center center-justified ui-sref="main.table" ui-sref-active="active">
+            Table
+          </div>
           <div flex></div>
           <div class="tabs-app" horizontal layout center center-justified>
             <i class="mdi mdi mdi-view-headline"></i>
@@ -65,7 +70,7 @@
           </div>
         </div>
       </ion-header-bar>
-      <ion-content style="bottom: 177px">
+      <ion-content style="bottom: 130px" ng-class="{activeCalculator: settingPos.url == '/calculator'}" class="calculator-order">
         <div class="list-foods-order">
           <div ng-repeat="item in order.orderNoSplit" ng-show="item.foods.length">
             <div class="label-category" horizontal layout>
@@ -85,15 +90,62 @@
                   <div class="subtotal-food"><i class="mdi mdi-tag-text-outline" ng-show="item.discounts.length"></i> {{item.subTotal | currency}}</div>
                 </div>
                 <div class="option-list" ng-show="item.options.length">
-                  - <span ng-repeat="o in item.options">{{o.name}}<span ng-hide="$index == (item.options.length - 1)">,</span> </span>
+                  <span ng-repeat="o in item.options" ng-show="o.selected">{{o.name}}<span ng-hide="$index == item.options.length - 1">,</span> </span>
                 </div>
                 <div class="option-list" ng-show="item.foodNote">- mon nhieu rau</div>
               </div>
             </div>
           </div>
         </div>
+
+        <div class="list-foods-order">
+          <div ng-show="order.taxes.length">
+            <div class="label-category" horizontal layout style="background: #51A543; color: #fff">
+              <div flex style="padding: 8px">Total tax</div>
+              <div style="padding: 8px">
+                {{order.totalTax | currency}}
+              </div>
+            </div>
+            <div style="padding: 4px 0">
+              <div class="one-food" ng-repeat="item in order.taxes">
+                <div class="foods-list" horizontal layout center-justified center>
+                  <div class="delivered-food"><i class="mdi mdi-close"></i></div>
+                  <div flex>
+                    {{item.name}}
+                  </div>
+                  <div class="subtotal-food" style="padding: 0 8px">
+                    <span ng-show="item.amount">{{item.amount | currency}}</span>
+                    <span ng-show="item.percent">{{item.percent}}%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div ng-show="order.discounts.length">
+            <div class="label-category" horizontal layout style="background-color: #D38022; color: #fff">
+              <div flex style="padding: 8px">Total discount</div>
+              <div style="padding: 8px">
+                {{order.totalDiscount | currency}}
+              </div>
+            </div>
+            <div style="padding: 4px 0">
+              <div class="one-food" ng-repeat="item in order.discounts">
+                <div class="foods-list" horizontal layout center-justified center>
+                  <div class="delivered-food"><i class="mdi mdi-close"></i></div>
+                  <div flex>
+                    {{item.name}}
+                  </div>
+                  <div class="subtotal-food" style="padding: 0 8px">
+                    <span ng-show="item.amount">{{item.amount | currency}}</span>
+                    <span ng-show="item.percent">{{item.percent}}%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </ion-content>
-      <ion-footer-bar class="footer-order">
+      <ion-footer-bar class="footer-order" ng-class="{activeCalculator: settingPos.url == '/calculator'}">
         <div class="total-order" horizontal layout>
           <div flex>Total:</div>
           <div>{{order.total | currency}}</div>
@@ -106,7 +158,7 @@
               <a class="button" ui-sref="main.discounts" ui-sref-active="active">Discounts</a>
             </div>
           </div>
-          <div class="group-function-order">
+          <div class="group-function-order" ng-show="settingPos.url == '/calculator'">
             <div class="button-bar">
               <a class="button" ng-click="selectPaymentMethodId(1)" ng-class="{active: order.paymentMethodId == 1}">Cash</a>
               <a class="button" ng-click="selectPaymentMethodId(2)" ng-class="{active: order.paymentMethodId == 2}">Card</a>
