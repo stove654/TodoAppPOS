@@ -8,7 +8,7 @@
     </div>
 
     <div class="list-tables">
-      <div ng-repeat="item in sectorSelected.tables" class="order-table">
+      <div ng-repeat="item in sectorSelected.tables" class="order-table" ng-click="selectTable(item)">
         <div class="detail-table" horizontal layout center-justified center>{{item.name}}</div>
       </div>
     </div>

@@ -58,8 +58,9 @@
     <ion-view class="order-content">
       <ion-header-bar class="theme-cashier-order">
         <div horizontal layout style="width: 100%; padding: 8px">
-          <div class="tabs-app" horizontal layout center center-justified ui-sref="main.tables" ui-sref-active="active">
-            Table
+          <div class="tabs-app" horizontal layout center center-justified ui-sref="main.tables" ui-sref-active="active" style="padding: 8px; font-size: 16px">
+            <span ng-show="!order.room._id">Table</span>
+            <span ng-show="order.room._id">{{order.room.name}}</span>
           </div>
           <div flex></div>
           <div class="tabs-app" horizontal layout center center-justified>
@@ -167,7 +168,7 @@
           </div>
         </div>
         <div class="button-confirm">
-          <button type="button" class="btn btn-danger btn-lg btn-block">Send</button>
+          <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="createOrder()">Send</button>
         </div>
       </ion-footer-bar>
     </ion-view>

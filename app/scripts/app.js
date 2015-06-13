@@ -11,7 +11,8 @@
 angular
   .module('appPosApp', [
     'ionic',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'angularMoment'
   ])
 
   .run(function ($rootScope, $state, $location, SessionService) {

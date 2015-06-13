@@ -53,18 +53,22 @@ angular.module('appPosApp')
     }
 
     this.updateTaxes = function (item) {
-      if (!_checkTaxDiscount(item, order.taxes) && order.orderNoSplit[0].foods.length && order.orderNoSplit[1].foods.length) {
-        console.log( order.orderNoSplit[0].foods.length , order.orderNoSplit[1].foods.length)
+      if (!_checkTaxDiscount(item, order.taxes) && order.orderNoSplit[0].foods.length || order.orderNoSplit[1].foods.length) {
         order.taxes.push(item);
         this.totalOrder();
       }
     };
 
     this.updateDiscounts = function (item) {
-      if (!_checkTaxDiscount(item, order.discounts) && order.orderNoSplit[0].foods.length && order.orderNoSplit[1].foods.length) {
+      if (!_checkTaxDiscount(item, order.discounts) && order.orderNoSplit[0].foods.length || order.orderNoSplit[1].foods.length) {
         order.discounts.push(item);
         this.totalOrder();
       }
+    };
+
+    this.updateTable = function (item) {
+      order.room = item;
+      console.log(order);
     };
 
     this.totalOrder = function () {

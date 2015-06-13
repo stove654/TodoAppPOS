@@ -47,5 +47,11 @@ angular.module('appPosApp')
       });
     };
 
+    api.createOrder = function (params) {
+      return $http.post(AppConfig.baseUrl + 'api/orders', params).then(function(data) {
+        console.log(data)
+      });
+    };
+
     return api;
   });

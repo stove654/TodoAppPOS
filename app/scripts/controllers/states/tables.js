@@ -15,6 +15,9 @@ angular.module('appPosApp')
 
     $scope.selectSector = function (item) {
       $scope.sectorSelected = item;
-    }
+    };
 
+    $scope.selectTable = function (item) {
+      OrderService.updateTable(angular.copy(item));
+    }
   });
