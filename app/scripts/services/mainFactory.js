@@ -41,5 +41,11 @@ angular.module('appPosApp')
       item.percent = parseFloat(item.percent);
     }
 
+    api.getTables = function () {
+      return $http.get(AppConfig.baseUrl + 'api/tables').then(function(data) {
+        localStorageService.set('tables', data.data)
+      });
+    };
+
     return api;
   });

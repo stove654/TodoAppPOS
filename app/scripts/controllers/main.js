@@ -27,6 +27,7 @@ angular.module('appPosApp')
     function _init () {
       MainFactory.getTaxes();
       MainFactory.getDiscounts();
+      MainFactory.getTables();
     }
     _init();
   });

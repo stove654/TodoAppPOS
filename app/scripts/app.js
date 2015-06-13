@@ -103,11 +103,11 @@ angular
           }
         }
       })
-      .state('main.table', {
-        url: '/table',
+      .state('main.tables', {
+        url: '/tables',
         views: {
           'menuContent' :{
-            templateUrl: 'views/states/table.html',
+            templateUrl: '../views/states/tables.html',
             controller: 'TableCtrl',
             data : {requireLogin : true }
           }

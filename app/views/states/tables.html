@@ -1,0 +1,18 @@
+<ion-view>
+  <ion-content class="back-ground">
+
+    <div class="list-sector">
+      <div style="padding: 8px; float: left" ng-repeat="item in tables">
+        <button class="btn btn-default" type="button" ng-click="selectSector(item)" ng-class="{active: item == sectorSelected}">{{item.name}}</button>
+      </div>
+    </div>
+
+    <div class="list-tables">
+      <div ng-repeat="item in sectorSelected.tables" class="order-table">
+        <div class="detail-table" horizontal layout center-justified center>{{item.name}}</div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
+
