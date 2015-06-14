@@ -150,6 +150,9 @@ angular
     };
   })
 
+  .constant('angularMomentConfig', {
+    timezone: 'Asia/Bangkok' // optional
+  })
 
   .controller('AppCtrl', function ($scope, SessionService) {
     SessionService.isToken();

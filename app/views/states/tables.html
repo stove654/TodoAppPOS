@@ -1,6 +1,13 @@
 <ion-view>
   <ion-content class="back-ground">
 
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Order number: </span>
+        <input type="number" ng-model="table.orderNumber">
+      </label>
+    </div>
+
     <div class="list-sector">
       <div style="padding: 8px; float: left" ng-repeat="item in tables">
         <button class="btn btn-default" type="button" ng-click="selectSector(item)" ng-class="{active: item == sectorSelected}">{{item.name}}</button>

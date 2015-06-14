@@ -2,11 +2,26 @@
   <ion-content class="back-ground">
 
     <div class="all-foods">
-      <div class="width-1-3" ng-repeat="item in orders">
-        <div class="food-image" vertical layout ng-click="selectedOrder(item)">
-          <div flex></div>
-          <div class="shadow-info">
-
+      <div class="width-1-3 order" ng-repeat="item in orders">
+        <div class="one-order" vertical layout ng-click="selectedOrder(item)" ng-class="{active: item._id == orderId}">
+          <div horizontal layout>
+            <div class="order-number" horizontal layout center center-justified><i class="mdi mdi-content-paste"></i> <span style="color: #a94442; margin-left: 4px;">#{{item.orderNumber}}</span></div>
+            <div flex horizontal layout center end-justified style="padding: 8px 8px 8px 0;color: #a94442;  font-size: 12px;"><time am-time-ago="item.createAt" title="{{ main.time | amDateFormat: 'dddd, MMMM Do YYYY, h:mm a' }}"></time></div>
+          </div>
+          <div horizontal layout>
+            <div class="order-table-show" horizontal layout center center-justified><i class="mdi mdi-table"></i> {{item.room.name}}</div>
+            <div flex horizontal layout center end-justified style="padding: 0 8px 8px 0;"><i class="mdi mdi-account"></i>Loi</div>
+          </div>
+          <div class="line-order"></div>
+          <div class="shadow-info-order" flex horizontal layout >
+            <div horizontal layout center center-justified class="cancel-order">
+              <i class="mdi mdi-delete"></i>
+            </div>
+            <div flex>
+            </div>
+            <div horizontal layout center center-justified class="status-order">
+              <span class="label label-success">Running</span>
+            </div>
           </div>
         </div>
       </div>

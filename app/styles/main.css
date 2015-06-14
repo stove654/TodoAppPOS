@@ -339,3 +339,40 @@ input {
   height: 65px;
   font-size: 16px;
 }
+.one-order {
+  height: 120px;
+}
+.order-number {
+  font-size: 20px;
+  padding: 8px;
+}
+.order {
+  height: 120px;
+}
+.one-order {
+  background-color: #fff;
+  box-shadow: 0 3px 0 #e6e6e6;
+  color: #888;
+  border: 2px solid transparent;
+}
+.one-order.active {
+  border: 2px solid #424242;
+}
+.order-table-show {
+  padding: 0 8px 8px 8px;
+}
+.cancel-order {
+  padding: 8px;
+  font-size: 20px;
+  color: #a94442;
+}
+.status-order {
+  padding: 8px;
+}
+.status-order span {
+  padding: 8px 10px;
+}
+.line-order {
+  height: 1px;
+  background-color: red;
+}
